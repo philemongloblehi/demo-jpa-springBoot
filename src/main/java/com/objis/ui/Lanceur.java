@@ -5,10 +5,10 @@
  */
 package com.objis.ui;
 
-import com.objis.dao.impl.AdresseDao;
-import com.objis.dao.impl.ClientDao;
+import ci.medic.domain.tp.Eleve;
+import com.objis.dao.impl.EleveDAO;
 import com.objis.onetone.uni.Adresse;
-import com.objis.onetone.uni.Client;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -57,6 +57,23 @@ public class Lanceur {
         //System.out.println("************************************");
         //System.out.println(adresseDao.count());
         //System.out.println("****************************************");
+        
+        EleveDAO eleveDAO = new EleveDAO(Eleve.class);
+        
+//        Eleve eleve = new Eleve("001", "GLOBLEHI", "PHLEMON", "YOPOUGON");
+//        Eleve eleve1 = new Eleve("002", "YEO", "SOUNGALO", "YOPOUGON");
+//        Eleve eleve2 = new Eleve("003", "LANDRY", "NDEPO", "ANONO");
+//        Eleve eleve3 = new Eleve("004", "YAYA", "DAGNOGO", "MARCORY");
+//        Eleve eleve4 = new Eleve("005", "AISSATA", "DIENG", "MARCORY");
+//        
+//        System.out.println(eleveDAO.create(eleve));
+//        System.out.println(eleveDAO.create(eleve1));
+//        System.out.println(eleveDAO.create(eleve2));
+//        System.out.println(eleveDAO.create(eleve3));
+//        System.out.println(eleveDAO.create(eleve4));
+
+          List<Eleve> listEleveCommune = eleveDAO.listEleveCommune("MARCORY");
+          System.out.println(listEleveCommune);
 
     }
 

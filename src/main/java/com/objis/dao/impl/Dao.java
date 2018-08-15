@@ -16,7 +16,7 @@ import javax.persistence.EntityManager;
  */
 public abstract class Dao<T,PK extends Serializable> implements IDao<T,PK>{
     
-    private EntityManager em;
+    protected EntityManager em;
     private Class<T> entityClass;
 
     public Dao(Class<T> entityClass) {
