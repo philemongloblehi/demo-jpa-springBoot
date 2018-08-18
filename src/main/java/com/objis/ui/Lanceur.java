@@ -5,10 +5,7 @@
  */
 package com.objis.ui;
 
-import ci.medic.domain.tp.Eleve;
-import com.objis.dao.impl.EleveDAO;
-import com.objis.onetone.uni.Adresse;
-import java.util.List;
+import ci.medic.domain.heritage.DepLogistique;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -24,10 +21,10 @@ public class Lanceur {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ci.objis_DemoJPA_jar_1.0PU");
         EntityManager em = emf.createEntityManager();
 
-        Adresse adresse = new Adresse("Cocody", "03336555");
+        //Adresse adresse = new Adresse("Cocody", "03336555");
 
-        em.getTransaction().begin();
-        em.persist(adresse);
+//        em.getTransaction().begin();
+//        em.persist(adresse);
 
 //        //lecture d'un element
 //        Adresse monAdresse = em.find(Adresse.class, 1L);
@@ -46,6 +43,15 @@ public class Lanceur {
 //        System.out.println(nvlAdresse);
 //        System.out.println("*****************************************");
 //        
+//        em.getTransaction().begin();
+//        em.persist(new DepInformatique("JAVA", 14, "PROMO 1"));
+            
+           em.getTransaction().begin();
+            em.persist(new DepLogistique(5, "DEPARTEMENT LOGISTIQUE"));
+
+        em.flush();
+        em.getTransaction().commit();
+        
         em.close();
         emf.close();
 
@@ -58,7 +64,7 @@ public class Lanceur {
         //System.out.println(adresseDao.count());
         //System.out.println("****************************************");
         
-        EleveDAO eleveDAO = new EleveDAO(Eleve.class);
+        // EleveDAO eleveDAO = new EleveDAO(Eleve.class);
         
 //        Eleve eleve = new Eleve("001", "GLOBLEHI", "PHLEMON", "YOPOUGON");
 //        Eleve eleve1 = new Eleve("002", "YEO", "SOUNGALO", "YOPOUGON");
@@ -72,8 +78,27 @@ public class Lanceur {
 //        System.out.println(eleveDAO.create(eleve3));
 //        System.out.println(eleveDAO.create(eleve4));
 
-          List<Eleve> listEleveCommune = eleveDAO.listEleveCommune("MARCORY");
-          System.out.println(listEleveCommune);
+//          List<Eleve> listEleveCommune = eleveDAO.listEleveCommune("MARCORY");
+//          System.out.println(listEleveCommune);
+//          
+//          Eleve monEleve = eleveDAO.findByMat("001");
+//          System.out.println(monEleve);
+//          
+//           String nomPrenom = "";
+//           
+//          List<Object[]> listNomPrenom = eleveDAO.listNomPrenom();
+//          
+//          for(Object[] objects : listNomPrenom) {
+//              nomPrenom="";
+//              for (Object object : objects) {
+//                  nomPrenom+=" "+object.toString();
+//                  //System.out.println(object.toString());
+//              }
+//          }
+//          System.out.println(nomPrenom.trim());
+//          
+//          List<Eleve> findByPrenom = eleveDAO.findByPrenom("SOUNGALO");
+//          System.out.println(findByPrenom);
 
     }
 
