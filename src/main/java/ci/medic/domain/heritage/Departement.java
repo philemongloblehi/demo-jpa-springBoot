@@ -6,6 +6,7 @@
 package ci.medic.domain.heritage;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -37,6 +38,7 @@ public class Departement implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @Column(name = "LIBELLE")
     private String libelle;
 
     // Constructeur
